@@ -21,7 +21,7 @@ watchr.watch({
             fs.read(fd, buffer, 0, 8, 0, function(err, num){
               var ident = buffer.toString('hex', 0, num);
               console.log("Eight bytes " + ident );
-              if(ident.match("000000[0-9]{2}66747970")){
+              if(ident.match("000000[0-9A-F]{2}66747970")){
                 console.log("BIG WIN!!!");
                 fs.createReadStream(filePath).pipe(fs.createWriteStream(writedir + fileIndex + ".mp4"));
                 fileIndex = fileIndex + 1;
